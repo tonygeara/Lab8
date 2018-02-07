@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AndroidLabs</string>
-    <string name="hello_message">BONJOUR LES AMIS!!!</string>
-    <string name="Login">Le Nom </string>
+    <string name="hello_message">LOGIN</string>
+    <string name="Login">LOGIN NAME</string>
     <string name="onSwchMsg">SWITCHED ON</string>
     <string name="offSwchMsg">SWITCHED OFF</string>
     <string name="dialog_msessage">open dialog message</string>
     <string name = "dialog_title"> Dialog Title </string>
     <string name = "ok"> OK </string>
     <string name ="cancel"> Cancel </string>
-
-
+    <string name ="email">TONY@GMAIL.COM</string>
 </resources>
