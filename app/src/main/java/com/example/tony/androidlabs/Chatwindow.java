@@ -20,14 +20,14 @@ import java.util.ArrayList;
 
 public class Chatwindow extends Activity {
 
-protected static final String ACTIVITY_NAME = "ChatWindow";
-    Button send;
-    EditText edittt;
-    ListView chatView;
-    ArrayList<String> saveChat;
-    ChatDatabaseHelper dhHelper;
-    SQLiteDatabase db;
-    ContentValues content;
+protected static final String NAME = "ChatWindow";
+    private  Button send;
+    private EditText edittt;
+    private ArrayList<String> saveChat;
+    private ListView chatView;
+    private ChatDatabaseHelper dhHelper;
+    private SQLiteDatabase db;
+    private ContentValues content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,27 +36,22 @@ protected static final String ACTIVITY_NAME = "ChatWindow";
         saveChat = new ArrayList<String> ();
         send =(Button) findViewById(R.id.send);
         edittt = (EditText) findViewById(R.id.editText);
-        chatView = (ListView) findViewById(R.id.ChatView);
-
         dhHelper = new ChatDatabaseHelper(this);
+        chatView = (ListView) findViewById(R.id.ChatView);
         db = dhHelper.getWritableDatabase();
         content = new ContentValues();
         final ChatAdapter messageAdapter =new ChatAdapter( this );
         chatView.setAdapter (messageAdapter);
 
         final Cursor cursor = db.query(ChatDatabaseHelper.TABLE_NAME, new String[]{ChatDatabaseHelper.KEY_ID, ChatDatabaseHelper.KEY_MESSAGE}, null, null, null, null, null);
-        if(cursor.moveToFirst()){
-            do{
+        while(cursor.isAfterLast()){
                 String message = cursor.getString(cursor.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE));
                 saveChat.add(message);
-                Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + cursor.getString(cursor.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE)));
-                cursor.moveToNext();
-            }
-            while(!cursor.isAfterLast() );
-        }
-        Log.i(ACTIVITY_NAME, "Cursor’s  column count =" + cursor.getColumnCount() );
+                Log.i(NAME, "SQL MESSAGE:" + cursor.getString(cursor.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE)));
+                cursor.moveToNext();}
+        Log.i(NAME, "Cursor’s  column count =" + cursor.getColumnCount() );
         for(int i=0;i<cursor.getColumnCount();i++)
-            Log.i(ACTIVITY_NAME, "Cursor’s  column name =" + cursor.getColumnName(i) );
+            Log.i(NAME, "Cursor’s  column name =" + cursor.getColumnName(i) );
         send .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +93,6 @@ protected static final String ACTIVITY_NAME = "ChatWindow";
     public void onDestroy(){
         super.onDestroy();
         db.close();
-        Log.i(ACTIVITY_NAME,"IS ON DESTROY");
+        Log.i(NAME,"IS ON DESTROY");
         }
     }

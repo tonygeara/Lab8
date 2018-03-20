@@ -26,7 +26,6 @@ public class LoginActivity extends Activity {
 
         Button button = (Button) findViewById(R.id.button);
 
-//        SharedPreferences sharedPref = getSharedPreferences("App_File",MODE_PRIVATE);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,15 +34,8 @@ public class LoginActivity extends Activity {
                     SharedPreferences preferences = getSharedPreferences("App_File", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     email = (EditText) findViewById(R.id.editText2);
-                    //retrieve data from preferences
                     editor.putString("Default E-mail", email.getText().toString());
-                /*
-                it is better to use apply() instead of commit(). Commit() will write to persistent
-                storage immediately while apply() will do it in the background.
-                 */
                     editor.commit();
-
-
                     Intent intent = new Intent(LoginActivity.this, StartActivity.class);
                     startActivity(intent);
                 } catch (NullPointerException npe) {
@@ -53,9 +45,6 @@ public class LoginActivity extends Activity {
         });
     }
 
-
-
-
     protected void onResume() {
         super.onResume();
         Log.i(NAME, "In onResume()");
@@ -64,12 +53,6 @@ public class LoginActivity extends Activity {
     protected void onStart() {
         super.onStart();
         Log.i(NAME, "In onStart()");
-//        SharedPreferences preferences = getSharedPreferences(LOGIN_ACTIVITY_PREFS, Context.MODE_PRIVATE);
-//        // On start set the default email to default email
-//        String defaultEmail = preferences.getString(DEFAULT_EMAIL_HOLDER, "email@domain.com");
-//        EditText editText = (EditText) findViewById(R.id.emailField);
-//        editText.setText(defaultEmail);
-
     }
 
 

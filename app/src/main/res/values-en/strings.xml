@@ -3,11 +3,13 @@
     <string name="app_name">AndroidLabs</string>
     <string name="hello_message">LOGIN</string>
     <string name="Login">LOGIN NAME</string>
-    <string name="onSwchMsg">SWITCHED ON</string>
-    <string name="offSwchMsg">SWITCHED OFF</string>
-    <string name="dialog_msessage">open dialog message</string>
-    <string name = "dialog_title"> Dialog Title </string>
+    <string name="onSwchMsg">SWITCH ON</string>
+    <string name="offSwchMsg">SWITCH OFF</string>
+    <string name="dialog_msessage">welcome to dialog page, want to continue?</string>
+    <string name="dialog_title"> TITLE DIALOG _ TONYGEARA </string>
     <string name = "ok"> OK </string>
     <string name ="cancel"> Cancel </string>
     <string name ="email">TONY@GMAIL.COM</string>
+    <string name ="startchat"> START CHAT  </string>
+
 </resources>
