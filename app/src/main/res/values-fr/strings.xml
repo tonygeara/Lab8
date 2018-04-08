@@ -2,13 +2,11 @@
 <resources>
     <string name="app_name">AndroidLabs</string>
     <string name="hello_message">BONJOUR LES AMIS!!!</string>
-    <string name="Login">Le Nom </string>
     <string name="onSwchMsg">SWITCH ON</string>
     <string name="offSwchMsg">SWITCH OFF</string>
     <string name="dialog_msessage">Vous voulez continuer?</string>
     <string name="dialog_title"> TITLE DIALOG _ TONYGEARA </string>
     <string name = "ok"> OK </string>
     <string name ="cancel"> Cancel </string>
-    <string name ="startchat"> start chat  </string>
 
 </resources>

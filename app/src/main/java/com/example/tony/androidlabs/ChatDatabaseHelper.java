@@ -7,6 +7,7 @@ package com.example.tony.androidlabs;
 //public  class ChatDatabaseHelper extends SQLiteOpenHelper {
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -31,5 +32,10 @@ public class ChatDatabaseHelper extends SQLiteOpenHelper {
         Log.i("ChatDatabaseHelper", "Calling onUpgrade, oldVersion=" + oldVer + " newVersion=" + newVer);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
+    }
+
+    public Cursor getRead (String query ) {
+         SQLiteDatabase db = getReadableDatabase();
+         return db.rawQuery(query,null);
     }
 }
