@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+
 public class LoginActivity extends Activity {
     protected static final String NAME = "LoginActivity";
 //    public static final String LOGIN_ACTIVITY_PREFS = "login_Activity";
@@ -19,11 +21,11 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_start);
 
         Log.i(NAME, "In onCreate()");
 
-        Button button = (Button) findViewById(R.id.button);
+        Button button = findViewById(R.id.button);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -32,7 +34,7 @@ public class LoginActivity extends Activity {
                 try {
                     SharedPreferences preferences = getSharedPreferences("App_File", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
-                    email = (EditText) findViewById(R.id.editText2);
+                    email = findViewById(R.id.editText2);
                     editor.putString("Default E-mail", email.getText().toString());
                     editor.commit();
                     Intent intent = new Intent(LoginActivity.this, StartActivity.class);

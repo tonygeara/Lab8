@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
 
 public class Chatwindow extends Activity {
 
@@ -41,6 +43,9 @@ protected static final int REQUEST_MSG_DELETE= 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_chatwindow);
         String[] allCol = {ChatDatabaseHelper.KEY_ID,ChatDatabaseHelper.KEY_MESSAGE};
         dhHelper = new ChatDatabaseHelper(this);
@@ -116,6 +121,10 @@ protected static final int REQUEST_MSG_DELETE= 2;
         send .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Vibrator vibrate = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                // Vibrate for 500 milliseconds
+                vibrate.vibrate(500);
+
 
                 saveChat.add(edittt.getText().toString());
                 content.put(ChatDatabaseHelper.KEY_MESSAGE, edittt.getText().toString());

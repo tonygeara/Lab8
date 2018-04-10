@@ -36,7 +36,7 @@ public class MessageFragment extends Fragment
                              Bundle savedInstanceState)
     {
         final View view = inflater.inflate(R.layout.activity_message_fragment, container, false);
-        final Bundle args = getArguments();
+//        final Bundle args = getArguments();
 
         viewMessage = (TextView) view.findViewById(R.id.message_detail_message);
         viewID = (TextView) view.findViewById(R.id.message_detail_id);
